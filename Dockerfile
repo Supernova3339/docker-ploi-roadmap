@@ -26,9 +26,9 @@ RUN wget https://github.com/ploi-deploy/roadmap/archive/refs/tags/${ROADMAPVERSI
 ENV APP_ENV production
 WORKDIR /app
 
-COPY init.sh /
-RUN chmod +x init.sh
+COPY init.sh /app
+RUN chmod +x /app/init.sh
 
-CMD ["./init.sh"]
+CMD ["init.sh"]
 RUN chown -R application:application .
 
