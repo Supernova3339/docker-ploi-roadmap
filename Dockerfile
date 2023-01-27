@@ -4,6 +4,9 @@ ENV ROADMAPVERSION=1.35
 
 # Install Laravel framework system requirements (https://laravel.com/docs/8.x/deployment#optimizing-configuration-loading)
 RUN apk add oniguruma-dev postgresql-dev libxml2-dev
+RUN apk add npm
+RUN npm cache clean -f
+RUN npm install -g n
 RUN docker-php-ext-install \
         ctype \
         fileinfo \
@@ -29,5 +32,9 @@ RUN php artisan config:cache
 RUN php artisan route:cache
 # Optimizing View loading
 RUN php artisan view:cache
+
+RUN npm ci
+
+RUN npm run production
 
 RUN chown -R application:application .
