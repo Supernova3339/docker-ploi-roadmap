@@ -26,18 +26,9 @@ RUN wget https://github.com/ploi-deploy/roadmap/archive/refs/tags/${ROADMAPVERSI
 ENV APP_ENV production
 WORKDIR /app
 
-RUN composer install --no-interaction --optimize-autoloader --no-dev
-# Optimizing Configuration loading
-RUN php artisan config:cache
-# Optimizing Route loading
-RUN php artisan route:cache
-# Optimizing View loading
-RUN php artisan view:cache
+COPY init.sh /
+RUN chmod +x ./init.sh
 
-RUN php artisan migrate 
-
-RUN npm ci
-
-RUN npm run production
-
+CMD ["./init.sh"]
 RUN chown -R application:application .
+
