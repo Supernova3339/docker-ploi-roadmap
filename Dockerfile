@@ -7,7 +7,6 @@ RUN apk add oniguruma-dev postgresql-dev libxml2-dev
 RUN docker-php-ext-install \
         ctype \
         fileinfo \
-        json \
         mbstring \
         tokenizer \
         xml
