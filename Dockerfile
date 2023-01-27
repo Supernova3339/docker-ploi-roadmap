@@ -8,7 +8,6 @@ RUN docker-php-ext-install \
         ctype \
         fileinfo \
         mbstring \
-        tokenizer \
         xml
 
 # Copy Composer binary from the Composer official Docker image
