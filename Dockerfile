@@ -31,5 +31,5 @@ RUN chmod +x init.sh
 
 RUN chown -R application:application .
 
-CMD ["init.sh"]
+CMD ["./init.sh"]
 
