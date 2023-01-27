@@ -19,7 +19,8 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 ENV WEB_DOCUMENT_ROOT /app/public
 
 RUN wget https://github.com/ploi-deploy/roadmap/archive/refs/tags/${ROADMAPVERSION}.zip \
-    && unzip ${ROADMAPVERSION}.zip -d /app \
+    && unzip ${ROADMAPVERSION}.zip \
+    && mv roadmap-${ROADMAPVERSION}/* /app \
     && chmod +x /app
 
 ENV APP_ENV production
