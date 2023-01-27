@@ -34,6 +34,8 @@ RUN php artisan route:cache
 # Optimizing View loading
 RUN php artisan view:cache
 
+RUN php artisan migrate 
+
 RUN npm ci
 
 RUN npm run production
