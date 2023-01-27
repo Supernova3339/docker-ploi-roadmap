@@ -29,7 +29,8 @@ WORKDIR /app
 COPY init.sh .
 RUN chmod +x init.sh
 
+CMD ["./init.sh"]
+
 RUN chown -R application:application .
 
-CMD ["./init.sh"]
 
