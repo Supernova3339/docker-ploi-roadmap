@@ -13,6 +13,8 @@ RUN docker-php-ext-install \
         tokenizer \
         xml
 
+ENV ROADMAPVERSION=1.35
+
 RUN wget -O https://github.com/ploi-deploy/roadmap/archive/refs/tags/${ROADMAPVERSION}.zip \
     && unzip roadmap-${ROADMAPVERSION}.zip -d /app \
     && chmod +x /app
