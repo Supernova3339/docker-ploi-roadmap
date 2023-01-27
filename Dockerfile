@@ -27,7 +27,7 @@ ENV APP_ENV production
 WORKDIR /app
 
 COPY init.sh /
-RUN chmod +x ./init.sh
+RUN chmod +x init.sh
 
 CMD ["./init.sh"]
 RUN chown -R application:application .
